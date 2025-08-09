@@ -2,7 +2,7 @@ import pygame
 import math
 import random
 
-WIDTH, HEIGHT = 1200, 900
+WIDTH, HEIGHT = 1200, 1080
 BLACK = (0, 0, 0)
 GRAY = (128, 128, 128)
 

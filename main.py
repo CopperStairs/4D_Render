@@ -2,8 +2,8 @@ import pygame
 import math
 import random
 
-WIDTH, HEIGHT = 1200, 1080
-BLACK = (0, 0, 0)
+WIDTH, HEIGHT = 1080, 720
+BG = (0, 0, 0)
 GRAY = (128, 128, 128)
 
 SCALE = 180
@@ -133,8 +133,7 @@ while running:
             if event.key in keys_pressed:
                 keys_pressed[event.key] = False
 
-    screen.fill(BLACK)
-
+    screen.fill(BG)
 
     if keys_pressed[pygame.K_q]:
         angles['xw'] -= ANGLE_STEP

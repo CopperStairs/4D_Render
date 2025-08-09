@@ -19,12 +19,12 @@
 *G, H* - rotate around the axis *yz*
 
 
-
+**How it works:**
 ```mermaid
 flowchart TD
     line_segment["Line segment (1D cube) has 2 0D sides"]
     square["Square (2D cube) has 4 1D sides"]
     cube["Cube (3D cube) has 6 2D sides"]
-    tesseract["Tesseract (4d hypercube) has 8 3D sides"]
+    tesseract["Tesseract (4D hypercube) has 8 3D sides"]
     line_segment --> square --> cube --> tesseract --> line_segment
 ```

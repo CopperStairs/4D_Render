@@ -26,5 +26,5 @@ flowchart TD
     square["Square (2D cube) has 4 1D sides"]
     cube["Cube (3D cube) has 6 2D sides"]
     tesseract["Tesseract (4d hypercube) has 8 3D sides"]
-    line_segment --> square --> cube --> tesseract
+    line_segment --> square --> cube --> tesseract --> line_segment
 ```

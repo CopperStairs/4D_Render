@@ -101,7 +101,7 @@ angles = {
     'zw': 0.0,
     'xy': 0.0,
     'xz': 0.0,
-    'yz': 0.3
+    'yz': 0.0
 }
 
 keys_pressed = {

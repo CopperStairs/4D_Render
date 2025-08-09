@@ -20,7 +20,7 @@
 
 
 
-
+```mermaind
 ---
 config:
   flowchart:
@@ -32,3 +32,4 @@ flowchart TD
     cube["`Cube (3D cube) has 6 2D sides`"]
     tesseract["`Tesseract (4d hypercube) has 8 3D sides`"]
     line_segment --> square --> cube --> tesseract
+```

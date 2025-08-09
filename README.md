@@ -20,7 +20,7 @@
 
 
 
-```mermaind
+```mermaid
 flowchart TD
     line_segment["Line segment (1D cube) has 2 1D sides"]
     square["Square (2D cube) has 4 1D sides"]

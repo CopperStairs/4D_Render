@@ -38,4 +38,5 @@ flowchart TD
 
 ## GIF
 
+(The gif file can take a long time to load)
 ![](https://github.com/CopperStairs/4D_Render/blob/main/images/gif.gif)

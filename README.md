@@ -20,6 +20,8 @@
 
 - *G, H* - rotate around the axis *yz*
 
+---
+
 ## How it works (geometry)
 
 ![Alt Text](images/image.png)
@@ -32,3 +34,9 @@ flowchart TD
     tesseract["Tesseract (4D hypercube) has 8 3D sides and 16 vertexes"]
     line_segment --> square --> cube --> tesseract
 ```
+
+---
+
+## GIF
+
+![alt-text](https://github.com/CopperStairs/4D_Render/blob/main/images/gif.gif)

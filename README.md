@@ -24,7 +24,7 @@
 
 ## How it works (geometry)
 
-![Alt Text](images/image.png)
+![](images/image.png)
 
 ```mermaid
 flowchart TD
@@ -39,4 +39,4 @@ flowchart TD
 
 ## GIF
 
-![alt-text](https://github.com/CopperStairs/4D_Render/blob/main/images/gif.gif)
+![](https://github.com/CopperStairs/4D_Render/blob/main/images/gif.gif)

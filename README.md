@@ -8,17 +8,17 @@
 
 *To rotate 4D hypercube use Q, W, E, R, T, Y, A, S, D, F, G, H keys*
 
--*Q, W* - rotate around the axis *xw*
+- *Q, W* - rotate around the axis *xw*
 
--*E, R* - rotate around the axis *yw*
+- *E, R* - rotate around the axis *yw*
 
--*T, Y* - rotate around the axis *zw*
+- *T, Y* - rotate around the axis *zw*
 
--*A, S* - rotate around the axis *xy*
+- *A, S* - rotate around the axis *xy*
 
--*D, F* - rotate around the axis *xz*
+- *D, F* - rotate around the axis *xz*
 
--*G, H* - rotate around the axis *yz*
+- *G, H* - rotate around the axis *yz*
 
 ## How it works (geometry)
 

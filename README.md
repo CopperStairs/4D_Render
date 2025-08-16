@@ -24,8 +24,7 @@
 
 ## How it works (geometry)
 
-![](images/image.png)
-```mermaid
+![](images/image.png) ```mermaid
 flowchart TD
     line_segment["Line segment (1D cube) has 2 0D sides and 2 vertexes"]
     square["Square (2D cube) has 4 1D sides and 4 vertexes"]

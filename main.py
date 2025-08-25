@@ -5,45 +5,9 @@ import random
 WIDTH, HEIGHT = 1080, 720
 BG = (0, 0, 0)
 GRAY = (128, 128, 128)
-
 SCALE = 180
 PERSPECTIVE = 4
 ANGLE_STEP = 0.0001
-
-def create_tesseract_vertices():
-    vertices = [
-        (-1, -1, -1, -1),
-        ( 1, -1, -1, -1),
-        ( 1,  1, -1, -1),
-        (-1,  1, -1, -1),
-        (-1, -1,  1, -1),
-        ( 1, -1,  1, -1),
-        ( 1,  1,  1, -1),
-        (-1,  1,  1, -1),
-        (-1, -1, -1,  1),
-        ( 1, -1, -1,  1),
-        ( 1,  1, -1,  1),
-        (-1,  1, -1,  1),
-        (-1, -1,  1,  1),
-        ( 1, -1,  1,  1),
-        ( 1,  1,  1,  1),
-        (-1,  1,  1,  1)
-    ]
-    return vertices
-
-
-def create_tesseract_edges():
-    edges = [
-        (0, 1), (1, 2), (2, 3), (3, 0),
-        (4, 5), (5, 6), (6, 7), (7, 4),
-        (0, 4), (1, 5), (2, 6), (3, 7),
-        (8, 9), (9, 10), (10, 11), (11, 8),
-        (12, 13), (13, 14), (14, 15), (15, 12),
-        (8, 12), (9, 13), (10, 14), (11, 15),
-        (0, 8), (1, 9), (2, 10), (3, 11),
-        (4, 12), (5, 13), (6, 14), (7, 15)
-    ]
-    return edges
 
 
 def rotate_xw(x, w, angle):
@@ -88,12 +52,33 @@ pygame.init()
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Tesseract Rotation Control")
 
-vertices = create_tesseract_vertices()
-edges = create_tesseract_edges()
+vertices = [(-1, -1, -1, -1),
+            ( 1, -1, -1, -1),
+            ( 1,  1, -1, -1),
+            (-1,  1, -1, -1),
+            (-1, -1,  1, -1),
+            ( 1, -1,  1, -1),
+            ( 1,  1,  1, -1),
+            (-1,  1,  1, -1),
+            (-1, -1, -1,  1),
+            ( 1, -1, -1,  1),
+            ( 1,  1, -1,  1),
+            (-1,  1, -1,  1),
+            (-1, -1,  1,  1),
+            ( 1, -1,  1,  1),
+            ( 1,  1,  1,  1),
+            (-1,  1,  1,  1)]
 
+edges = [(0, 1), (1, 2), (2, 3), (3, 0),
+        (4, 5), (5, 6), (6, 7), (7, 4),
+        (0, 4), (1, 5), (2, 6), (3, 7),
+        (8, 9), (9, 10), (10, 11), (11, 8),
+        (12, 13), (13, 14), (14, 15), (15, 12),
+        (8, 12), (9, 13), (10, 14), (11, 15),
+        (0, 8), (1, 9), (2, 10), (3, 11),
+        (4, 12), (5, 13), (6, 14), (7, 15)]
 
 vertex_colors = [(random.randint(50, 255), random.randint(50, 255), random.randint(50, 255)) for _ in range(len(vertices))]
-
 
 angles = {
     'xw': 0.0,
@@ -101,8 +86,7 @@ angles = {
     'zw': 0.0,
     'xy': 0.0,
     'xz': 0.0,
-    'yz': 0.0
-}
+    'yz': 0.0}
 
 keys_pressed = {
     pygame.K_q: False,  
@@ -116,8 +100,7 @@ keys_pressed = {
     pygame.K_d: False, 
     pygame.K_f: False,  
     pygame.K_g: False, 
-    pygame.K_h: False
-}
+    pygame.K_h: False}
 
 font = pygame.font.Font(None, 24)
 
@@ -159,10 +142,9 @@ while running:
         angles['yz'] -= ANGLE_STEP
     if keys_pressed[pygame.K_h]:
         angles['yz'] += ANGLE_STEP
-
     rotated_vertices = []
-    for x, y, z, w in vertices:
 
+    for x, y, z, w in vertices:
         x, w = rotate_xw(x, w, angles['xw'])
         y, w = rotate_yw(y, w, angles['yw'])
         z, w = rotate_zw(z, w, angles['zw'])
@@ -170,9 +152,7 @@ while running:
         x, z = rotate_xz(x, z, angles['xz'])
         y, z = rotate_yz(y, z, angles['yz'])
 
-
         rotated_vertices.append((x, y, z, w))
-
 
     projected_vertices = []
     for x, y, z, w in rotated_vertices:
@@ -183,7 +163,6 @@ while running:
     for i, edge in enumerate(edges):
         x1_proj, y1_proj = projected_vertices[edge[0]]
         x2_proj, y2_proj = projected_vertices[edge[1]]
-
         color1 = vertex_colors[edge[0]]
         color2 = vertex_colors[edge[1]]
         edge_color = ((color1[0] + color2[0]) // 2,
@@ -199,7 +178,6 @@ while running:
     text_xy = font.render(f"xy Angle: {angles['xy']:.2f}", True, text_color)
     text_xz = font.render(f"xz Angle: {angles['xz']:.2f}", True, text_color)
     text_yz = font.render(f"yz Angle: {angles['yz']:.2f}", True, text_color)
-
 
     screen.blit(text_xw, (10, 10))
     screen.blit(text_yw, (10, 30))

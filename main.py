@@ -69,40 +69,38 @@ vertices = [(-1, -1, -1, -1),
             ( 1,  1,  1,  1),
             (-1,  1,  1,  1)]
 
-edges = [(0, 1), (1, 2), (2, 3), (3, 0),
-        (4, 5), (5, 6), (6, 7), (7, 4),
-        (0, 4), (1, 5), (2, 6), (3, 7),
-        (8, 9), (9, 10), (10, 11), (11, 8),
-        (12, 13), (13, 14), (14, 15), (15, 12),
-        (8, 12), (9, 13), (10, 14), (11, 15),
-        (0, 8), (1, 9), (2, 10), (3, 11),
-        (4, 12), (5, 13), (6, 14), (7, 15)]
+e = [(0, 1), (1, 2), (2, 3), (3, 0),
+    (4, 5), (5, 6), (6, 7), (7, 4),
+    (0, 4), (1, 5), (2, 6), (3, 7),
+    (8, 9), (9, 10), (10, 11), (11, 8),
+    (12, 13), (13, 14), (14, 15), (15, 12),
+    (8, 12), (9, 13), (10, 14), (11, 15),
+    (0, 8), (1, 9), (2, 10), (3, 11),
+    (4, 12), (5, 13), (6, 14), (7, 15)]
 
-vertex_colors = [(random.randint(50, 255), random.randint(50, 255), random.randint(50, 255)) for _ in range(len(vertices))]
+vertex_colors = [(random.randint(100, 255), random.randint(100, 255), random.randint(100, 255)) for _ in range(len(vertices))]
 
-angles = {
-    'xw': 0.0,
-    'yw': 0.0,
-    'zw': 0.0,
-    'xy': 0.0,
-    'xz': 0.0,
-    'yz': 0.0}
+angles = {'xw': 0.0,
+          'yw': 0.0,
+          'zw': 0.0,
+          'xy': 0.0,
+          'xz': 0.4,
+          'yz': 0.2}
 
-keys_pressed = {
-    pygame.K_q: False,  
-    pygame.K_w: False,  
-    pygame.K_e: False,  
-    pygame.K_r: False,  
-    pygame.K_t: False, 
-    pygame.K_y: False,  
-    pygame.K_a: False,  
-    pygame.K_s: False,  
-    pygame.K_d: False, 
-    pygame.K_f: False,  
-    pygame.K_g: False, 
-    pygame.K_h: False}
+keys_pressed = {pygame.K_q: False,  
+                pygame.K_w: False,  
+                pygame.K_e: False,  
+                pygame.K_r: False,  
+                pygame.K_t: False, 
+                pygame.K_y: False,  
+                pygame.K_a: False,  
+                pygame.K_s: False,  
+                pygame.K_d: False, 
+                pygame.K_f: False,  
+                pygame.K_g: False, 
+                pygame.K_h: False}
 
-font = pygame.font.Font(None, 24)
+f = pygame.font.Font(None, 24)
 
 running = True
 while running:
@@ -160,7 +158,7 @@ while running:
         projected_vertices.append((x_proj, y_proj))
 
 
-    for i, edge in enumerate(edges):
+    for i, edge in enumerate(e):
         x1_proj, y1_proj = projected_vertices[edge[0]]
         x2_proj, y2_proj = projected_vertices[edge[1]]
         color1 = vertex_colors[edge[0]]
@@ -172,12 +170,12 @@ while running:
         pygame.draw.line(screen, edge_color, (x1_proj, y1_proj), (x2_proj, y2_proj), 2)
 
     text_color = GRAY
-    text_xw = font.render(f"xw Angle: {angles['xw']:.2f}", True, text_color)
-    text_yw = font.render(f"yw Angle: {angles['yw']:.2f}", True, text_color)
-    text_zw = font.render(f"zw Angle: {angles['zw']:.2f}", True, text_color)
-    text_xy = font.render(f"xy Angle: {angles['xy']:.2f}", True, text_color)
-    text_xz = font.render(f"xz Angle: {angles['xz']:.2f}", True, text_color)
-    text_yz = font.render(f"yz Angle: {angles['yz']:.2f}", True, text_color)
+    text_xw = f.render(f"xw Angle: {angles['xw']}", True, text_color)
+    text_yw = f.render(f"yw Angle: {angles['yw']}", True, text_color)
+    text_zw = f.render(f"zw Angle: {angles['zw']}", True, text_color)
+    text_xy = f.render(f"xy Angle: {angles['xy']}", True, text_color)
+    text_xz = f.render(f"xz Angle: {angles['xz']}", True, text_color)
+    text_yz = f.render(f"yz Angle: {angles['yz']}", True, text_color)
 
     screen.blit(text_xw, (10, 10))
     screen.blit(text_yw, (10, 30))

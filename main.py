@@ -4,10 +4,10 @@ import random
 
 WIDTH, HEIGHT = 1080, 720
 BG = (0, 0, 0)
-GRAY = (128, 128, 128)
+TXT = (128, 128, 128)
 SCALE = 180
-PERSPECTIVE = 4
-ANGLE_STEP = 0.0001
+PERSP = 4
+ANGLE_STEP = 0.0002
 
 
 def rotate_xw(x, w, angle):
@@ -42,7 +42,7 @@ def rotate_yz(y, z, angle):
 
 
 def proj_4_to_2(x, y, z, w):
-    distance = PERSPECTIVE / (PERSPECTIVE + w)
+    distance = PERSP / (PERSP + w)
     x = x * distance * SCALE + WIDTH // 2
     y = y * distance * SCALE + HEIGHT // 2
     return x, y
@@ -78,7 +78,7 @@ e = [(0, 1), (1, 2), (2, 3), (3, 0),
     (0, 8), (1, 9), (2, 10), (3, 11),
     (4, 12), (5, 13), (6, 14), (7, 15)]
 
-vertex_colors = [(random.randint(100, 255), random.randint(100, 255), random.randint(100, 255)) for _ in range(len(vertices))]
+vertex_colors = [(random.randint(125, 255), random.randint(125, 255), random.randint(125, 255)) for _ in range(len(vertices))]
 
 angles = {'xw': 0.0,
           'yw': 0.0,
@@ -169,7 +169,7 @@ while running:
 
         pygame.draw.line(screen, edge_color, (x1_proj, y1_proj), (x2_proj, y2_proj), 2)
 
-    text_color = GRAY
+    text_color = TXT
     text_xw = f.render(f"xw Angle: {angles['xw']}", True, text_color)
     text_yw = f.render(f"yw Angle: {angles['yw']}", True, text_color)
     text_zw = f.render(f"zw Angle: {angles['zw']}", True, text_color)

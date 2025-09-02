@@ -41,7 +41,7 @@ def rotate_yz(y, z, angle):
     return y_new, z_new
 
 
-def project_4d_to_2d(x, y, z, w):
+def proj_4_to_2(x, y, z, w):
     distance = PERSPECTIVE / (PERSPECTIVE + w)
     x = x * distance * SCALE + WIDTH // 2
     y = y * distance * SCALE + HEIGHT // 2
@@ -154,7 +154,7 @@ while running:
 
     projected_vertices = []
     for x, y, z, w in rotated_vertices:
-        x_proj, y_proj = project_4d_to_2d(x, y, z, w)
+        x_proj, y_proj = proj_4_to_2(x, y, z, w)
         projected_vertices.append((x_proj, y_proj))
 
 
